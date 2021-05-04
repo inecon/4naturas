@@ -12,9 +12,9 @@ const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const cookieParser = require('cookie-parser');
+const compression = require('compression')
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
-
 
 const app = express();
 app.set('view engine', 'pug');
@@ -79,6 +79,8 @@ app.use(
     },
   })
 );
+
+app.use(compression());
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
