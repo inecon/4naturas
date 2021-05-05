@@ -9,7 +9,7 @@ router.get('/login', getLoginForm);
 
 //router.get('/signup', signup);
 
-router.get('/', createBookingCheckout, isLoggedIn, getOverview);
+router.get('/', isLoggedIn, getOverview);
 router.get('/tour/:slug', isLoggedIn, getTour);
 router.get('/login', isLoggedIn, getOverview);
 router.get('/me', protect, getAccount);
