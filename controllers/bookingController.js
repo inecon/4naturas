@@ -15,7 +15,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     success_url: `${req.protocol}://${req.get('host')}/my-tours`,
     cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
     customer_email: req.user.email,
-    client_reference_id: req.params.tourID,
+    client_reference_id: req.params.tourId,
     line_items: [{
       name: `${tour.name} Tour`,
       description: tour.summary,
@@ -59,6 +59,7 @@ exports.webhookCheckout = (req, res, next) => {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
+    console.log(err)
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
 

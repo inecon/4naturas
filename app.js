@@ -40,8 +40,9 @@ app.use('/api', limiter);
 
 app.post(
   '/webhook-checkout',
-  bodyParser.raw({type: 'application/json'}),
-  webhookCheckout)
+  bodyParser.raw({ type: 'application/json' }),
+  webhookCheckout
+);
 
 app.use(helmet());
 app.use(
