@@ -39,7 +39,7 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 app.post(
-  '/webhook-checkout',
+  '/webhook-ckeckout',
   bodyParser.raw({ type: 'application/json' }),
   webhookCheckout
 );
